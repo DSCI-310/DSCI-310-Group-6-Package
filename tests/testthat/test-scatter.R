@@ -1,3 +1,5 @@
+library(tidyverse)
+library(assertthat)
 library(vdiffr)
 
 #TEST DATA
