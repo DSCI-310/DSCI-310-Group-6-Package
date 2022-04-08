@@ -1,7 +1,3 @@
-library(tidyverse)
-library(assertthat)
-library(vdiffr)
-
 #TEST DATA
 data <- tibble(
   Name = c("Arthur", "Glenda", "Jemma", "James"),

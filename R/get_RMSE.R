@@ -12,7 +12,6 @@
 # @example get_RMSE()
 
 
-
 get_RMSE = function(predicted, actual) {
   if((!is.numeric(predicted)) |  (!is.numeric(actual)))  {
     stop("get_RMSE expects two vectors of numeric values")

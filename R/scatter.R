@@ -1,6 +1,3 @@
-library(tidyverse)
-library(assertthat)
-
 #' Scatter plot function
 #'
 #' Given a dataframe, two columns and other tunning parameters,
