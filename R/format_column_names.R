@@ -10,7 +10,8 @@
 #' @export
 #'
 #' @examples
-#' format_column_names(dataframe)
+#' df <- data.frame (`colName1`  = c("value_1", "value_2"),`colName2` = c("value_1", "value_2"))
+#' format_column_names(df)
 format_column_names <- function(df) {
   if (!is.data.frame(df)) {
     stop("`data_frame` should be a data frame or data frame extension (e.g. a tibble)")
