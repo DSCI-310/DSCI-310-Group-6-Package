@@ -1,6 +1,3 @@
-#source("../../src/format_column_names.R")
-#library(testthat)
-
 # function input for tests
 noSpace <- data.frame (`colName1`  = c("value_1", "value_2"),
                        `colName2` = c("value_1", "value_2")
