@@ -71,10 +71,6 @@ formatted_df
 
 Calculates the RMSE given predicted and actual value. TODO
 
-### `scatter()`
-
-TODO
-
 ### `split_data()`
 
 TODO
