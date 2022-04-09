@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # package6
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/DSCI-310/DSCI-310-Group-6-Package/workflows/R-CMD-check/badge.svg)](https://github.com/DSCI-310/DSCI-310-Group-6-Package/actions)
 <!-- badges: end -->
 
 The goal of package6 is to ...
