@@ -54,8 +54,9 @@
 <div class="page-header"><h1 id="package6">package6<a class="anchor" aria-label="anchor" href="#package6"></a>
 </h1></div>
 <!-- badges: start -->
-<!-- badges: end -->
-<p>The goal of <a href="https://dsci-310.github.io/DSCI-310-Group-6-Package/" class="external-link">package6</a> is to …</p>
+
+<p>The goal of package6 is to encapsulate useful helper functions used for data analysis projects similar to <a href="https://github.com/DSCI-310/DSCI-310-Group-6" class="external-link">New Taipei City Real Estate Value Prediction</a>.</p>
+<p><br></p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -63,37 +64,61 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"DSCI-310/DSCI-310-Group6-Package"</span><span class="op">)</span></code></pre></div>
+<p><br></p>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<div class="section level3">
+<h3 id="format_column_names">
+<code>format_column_names()</code><a class="anchor" aria-label="anchor" href="#format_column_names"></a>
+</h3>
+<p>Sometimes raw data set have column names with blank spaces in the column names.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">package6</span><span class="op">)</span>
-<span class="co">#&gt; Loading required package: tidyverse</span>
-<span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</span>
-<span class="co">#&gt; ✓ ggplot2 3.3.5     ✓ purrr   0.3.4</span>
-<span class="co">#&gt; ✓ tibble  3.1.6     ✓ dplyr   1.0.7</span>
-<span class="co">#&gt; ✓ tidyr   1.1.4     ✓ stringr 1.4.0</span>
-<span class="co">#&gt; ✓ readr   2.1.1     ✓ forcats 0.5.1</span>
-<span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span>
-<span class="co">#&gt; x dplyr::filter() masks stats::filter()</span>
-<span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span>
-<span class="co">## basic example code</span></code></pre></div>
-<p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>`col Name1`<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>,`col Name2` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"3"</span>, <span class="st">"4"</span><span class="op">)</span>,  check.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">df</span>
+<span class="co">#&gt;   col Name1 col Name2</span>
+<span class="co">#&gt; 1         1         3</span>
+<span class="co">#&gt; 2         2         4</span></code></pre></div>
+<p>it is generally a good idea to remove the blank spaces. This is what <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">base::gsub()</a></code> do.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span>
-<span class="co">#&gt;      speed           dist       </span>
-<span class="co">#&gt;  Min.   : 4.0   Min.   :  2.00  </span>
-<span class="co">#&gt;  1st Qu.:12.0   1st Qu.: 26.00  </span>
-<span class="co">#&gt;  Median :15.0   Median : 36.00  </span>
-<span class="co">#&gt;  Mean   :15.4   Mean   : 42.98  </span>
-<span class="co">#&gt;  3rd Qu.:19.0   3rd Qu.: 56.00  </span>
-<span class="co">#&gt;  Max.   :25.0   Max.   :120.00</span></code></pre></div>
-<p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code>devtools::build_readme()</code> is handy for this. You could also use GitHub Actions to re-render <code>README.Rmd</code> every time you push. An example workflow can be found here: <a href="https://github.com/r-lib/actions/tree/v1/examples" class="external-link uri">https://github.com/r-lib/actions/tree/v1/examples</a>.</p>
-<p>You can also embed plots, for example:</p>
-<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
-<p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub and CRAN.</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">" "</span>, <span class="st">"_"</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span>
+<span class="va">df</span>
+<span class="co">#&gt;   col_Name1 col_Name2</span>
+<span class="co">#&gt; 1         1         3</span>
+<span class="co">#&gt; 2         2         4</span></code></pre></div>
+<p>Notice how <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub()</a></code> requires three arguments and modifies the original data frame.Also the return value is not a data frame. <code><a href="reference/format_column_names.html">package6::format_column_names()</a></code> requires only one argument. It does not modify the original data frame and returns the data frame with formatted column names.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>`col Name1`<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>,`col Name2` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"3"</span>, <span class="st">"4"</span><span class="op">)</span>,  check.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">formatted_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/format_column_names.html">format_column_names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="va">formatted_df</span>
+<span class="co">#&gt;   col_Name1 col_Name2</span>
+<span class="co">#&gt; 1         1         3</span>
+<span class="co">#&gt; 2         2         4</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="get_rmse">
+<code>get_RMSE()</code><a class="anchor" aria-label="anchor" href="#get_rmse"></a>
+</h3>
+<p>Calculates the RMSE given predicted and actual value. TODO</p>
+</div>
+<div class="section level3">
+<h3 id="split_data">
+<code>split_data()</code><a class="anchor" aria-label="anchor" href="#split_data"></a>
+</h3>
+<p>TODO</p>
+<p><br></p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
+</h2>
+<p>TODO</p>
+<p><br></p>
+</div>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
 <p><a href="https://codecov.io/gh/DSCI-310/DSCI-310-Group-6-Package" class="external-link"><img src="https://codecov.io/gh/DSCI-310/DSCI-310-Group-6-Package/branch/main/graph/badge.svg?token=QRIHLUGBLT" alt="codecov"></a></p>
 </div>
 </div>
@@ -120,7 +145,12 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/DSCI-310/DSCI-310-Group-6-Package/actions" class="external-link"><img src="https://github.com/DSCI-310/DSCI-310-Group-6-Package/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
