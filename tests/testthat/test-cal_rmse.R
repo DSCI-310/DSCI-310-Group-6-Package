@@ -14,5 +14,5 @@ test_that("Error detected when non-numeric input given",{
 
 
 test_that("Error detected when input vectors have different lengths", {
-  expect_error(cal_rmse(predicted, faulty_vector))
-  expect_error(cal_rmse(predicted, faulty_vector))})
+  expect_error(cal_rmse(predicted, long_vector))
+  expect_error(cal_rmse(predicted, long_vector))})
