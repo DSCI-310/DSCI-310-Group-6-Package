@@ -4,7 +4,7 @@
 \alias{split_data}
 \title{Split data into 3 data frames}
 \usage{
-split_data(dataset, y, train_perc = 0.6, vs_prec = 0.2, test_perc = 0.2)
+split_data(dataset, train_perc = 0.6, vs_prec = 0.2, test_perc = 0.2)
 }
 \arguments{
 \item{dataset}{a data set or data frame}
@@ -22,8 +22,8 @@ a list of 3 data frame: train data sets, test data sets, variable selection data
 Split data into 3 data frames
 }
 \examples{
-(dataset, 7 , train_perc = 0.6, vs_prec = 0.2, test_perc = 0.2)
-return a list of 6 data frame:  X,Y train data sets, X, Y test data set
-       X, Y data set for variable selection
+x=data.frame(replicate(10,sample(0:1,1000,rep=TRUE)))
+out = split_data(x)
+
 
 }

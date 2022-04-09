@@ -6,15 +6,15 @@
 #' @param test_perc percentage of test data, default value is 0.2
 #'
 #' @return a list of 3 data frame: train data sets, test data sets, variable selection data sets
-#'
+#' @import tidyverse
 #' @export
 #'
 #' @examples
-#' (dataset, 7 , train_perc = 0.6, vs_prec = 0.2, test_perc = 0.2)
-#' return a list of 6 data frame:  X,Y train data sets, X, Y test data set
-#'        X, Y data set for variable selection
+#' x=data.frame(replicate(10,sample(0:1,1000,rep=TRUE)))
+#' out = split_data(x)
 #'
-split_data <- function(dataset, y, train_perc = 0.6, vs_prec = 0.2, test_perc = 0.2) {
+#'
+split_data <- function(dataset, train_perc = 0.6, vs_prec = 0.2, test_perc = 0.2) {
 
   if (!is.data.frame(dataset)) {
     stop("`dataset` should be a data frame or data frame extension")

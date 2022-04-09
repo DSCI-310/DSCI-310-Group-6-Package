@@ -20,7 +20,7 @@ test_that("The train, test data set must be smaller than the original data", {
 
 test_that("When inappropriate types are given to the 'dataset',
           'split data' should throw an error.", {
-            expect_error(split_data(two_classes_3_obs, vector_class_labels))
-            expect_error(split_data(two_classes_3_obs_as_list, string_class))
+            expect_error(split_data(vector_class))
+            expect_error(split_data(string_class))
           })
 
