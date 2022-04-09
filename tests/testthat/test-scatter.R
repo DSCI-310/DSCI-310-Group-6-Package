@@ -16,7 +16,7 @@ scatter_plot_fun <- scatter_plot(
 ### - - - TESTS - - - ###
 
 test_that("`scatter_plot` should return an exact copy of the provided plot", {
-  expect_doppelganger("scatter-plot-doppl", scatter_plot_fun)
+  vdiffr::expect_doppelganger("scatter-plot-doppl", scatter_plot_fun)
 })
 
 test_that("`scatter_plot` should throw an error when columns are not numeric", {

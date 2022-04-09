@@ -39,13 +39,13 @@ scatter_plot <- function(
   else if (!dataframe %>% pull({{y_var}}) %>% is.numeric) {
     stop("Column for variable Y doesn't contain numerical values")
   }
-  else if (!is.string(title)) {
+  else if (!assertthat::is.string(title)) {
     stop("Title is not a string variable")
   }
-  else if (!is.string(x_label)) {
+  else if (!assertthat::is.string(x_label)) {
     stop("X axis label is not a string variable")
   }
-  else if (!is.string(y_label)) {
+  else if (!assertthat::is.string(y_label)) {
     stop("Y axis label is not a string variable")
   }
 

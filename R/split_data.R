@@ -9,7 +9,8 @@
 #'
 #' @export
 #'
-#' @examples (dataset, 7 , train_perc = 0.6, vs_prec = 0.2, test_perc = 0.2)
+#' @examples
+#' (dataset, 7 , train_perc = 0.6, vs_prec = 0.2, test_perc = 0.2)
 #' return a list of 6 data frame:  X,Y train data sets, X, Y test data set
 #'        X, Y data set for variable selection
 #'
