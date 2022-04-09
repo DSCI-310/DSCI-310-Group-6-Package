@@ -6,7 +6,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of package6 is to …
+The goal of [package6](https://dsci-310.github.io/DSCI-310-Group-6-Package/) is to …
+
+
 
 ## Installation
 
