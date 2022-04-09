@@ -4,11 +4,15 @@
 # package6
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/DSCI-310/DSCI-310-Group-6-Package/workflows/R-CMD-check/badge.svg)](https://github.com/DSCI-310/DSCI-310-Group-6-Package/actions)
 <!-- badges: end -->
 
-The goal of [package6](https://dsci-310.github.io/DSCI-310-Group-6-Package/) is to …
+The goal of package6 is to encapsulate useful helper functions used for
+data analysis projects similar to [New Taipei City Real Estate Value
+Prediction](https://github.com/DSCI-310/DSCI-310-Group-6).
 
-
+<br/>
 
 ## Installation
 
@@ -20,49 +24,69 @@ You can install the development version of package6 from
 devtools::install_github("DSCI-310/DSCI-310-Group6-Package")
 ```
 
-## Example
+<br/>
 
-This is a basic example which shows you how to solve a common problem:
+## Usage
 
-``` r
-library(package6)
-#> Loading required package: tidyverse
-#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-#> ✓ tibble  3.1.6     ✓ dplyr   1.0.7
-#> ✓ tidyr   1.1.4     ✓ stringr 1.4.0
-#> ✓ readr   2.1.1     ✓ forcats 0.5.1
-#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-#> x dplyr::filter() masks stats::filter()
-#> x dplyr::lag()    masks stats::lag()
-## basic example code
-```
+### `format_column_names()`
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Sometimes raw data set have column names with blank spaces in the column
+names.
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+df <- data.frame(`col Name1`= c(1,2),`col Name2` = c("3", "4"),  check.names = FALSE)
+df
+#>   col Name1 col Name2
+#> 1         1         3
+#> 2         2         4
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+it is generally a good idea to remove the blank spaces. This is what
+`base::gsub()` do.
 
-You can also embed plots, for example:
+``` r
+names(df) <- gsub(" ", "_", names(df))
+df
+#>   col_Name1 col_Name2
+#> 1         1         3
+#> 2         2         4
+```
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+Notice how `gsub()` requires three arguments and modifies the original
+data frame.Also the return value is not a data frame.
+`package6::format_column_names()` requires only one argument. It does
+not modify the original data frame and returns the data frame with
+formatted column names.
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+``` r
+df <- data.frame(`col Name1`= c(1,2),`col Name2` = c("3", "4"),  check.names = FALSE)
+formatted_df <- format_column_names(df)
+formatted_df
+#>   col_Name1 col_Name2
+#> 1         1         3
+#> 2         2         4
+```
 
-[![codecov](https://codecov.io/gh/DSCI-310/DSCI-310-Group-6-Package/branch/main/graph/badge.svg?token=QRIHLUGBLT)](https://codecov.io/gh/DSCI-310/DSCI-310-Group-6-Package)
+### `get_RMSE()`
+
+Calculates the RMSE given predicted and actual value. TODO
+
+### `scatter()`
+
+TODO
+
+### `split_data()`
+
+TODO
+
+<br/>
+
+## Dependencies
+
+TODO
+
+<br/>
+
+## License
+
+TODO
