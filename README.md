@@ -3,10 +3,7 @@
 
 # package6
 
-<!-- badges: start -->
-
-[![R-CMD-check](https://github.com/DSCI-310/DSCI-310-Group-6-Package/workflows/R-CMD-check/badge.svg)](https://github.com/DSCI-310/DSCI-310-Group-6-Package/actions)
-<!-- badges: end -->
+[![R-CMD-check](https://github.com/DSCI-310/DSCI-310-Group-6-Package/actions/workflows/r_cmd_check.yml/badge.svg)](https://github.com/DSCI-310/DSCI-310-Group-6-Package/actions/workflows/r_cmd_check.yml)
 
 The goal of package6 is to encapsulate useful helper functions used for
 data analysis projects similar to [New Taipei City Real Estate Value
