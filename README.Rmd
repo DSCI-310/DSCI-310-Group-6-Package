@@ -20,6 +20,8 @@ knitr::opts_chunk$set(
 [![codecov](https://codecov.io/gh/DSCI-310/DSCI-310-Group-6-Package/branch/main/graph/badge.svg?token=QRIHLUGBLT)](https://codecov.io/gh/DSCI-310/DSCI-310-Group-6-Package)
 <!-- badges: end -->
 
+---
+
 The goal of package6 is to encapsulate useful helper functions used for data analysis projects similar to [New Taipei City Real Estate Value Prediction](https://github.com/DSCI-310/DSCI-310-Group-6).
 
 <br/>
@@ -102,3 +104,4 @@ cal_rmse(predicted, actual)
 
 ## License
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
