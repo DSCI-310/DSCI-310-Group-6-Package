@@ -61,20 +61,43 @@ formatted_df <- format_column_names(df)
 formatted_df
 ```
 
-### `get_RMSE()`
-Calculates the RMSE given predicted and actual value.
-TODO
+### `split_data(dataset, train_perc, vs_prec, test_perc)`
+To split a data set/ date frame into 3 parts:train data, test data and variable selection data
+```{r}
+df <- mtcars
+glimpse(df)
+```
 
-### `split_data()`
-TODO
+Let's start with mtcars data frame
+
+``` {r}
+train<-split_data(mtcars)$train
+cv<-split_data(mtcars)$cv
+test<-split_data(mtcars)$test
+glimpse(train)
+glimpse(cv)
+glimpse(test)
+```
+
+### `cal_rmse(x,y)`
+To calculate RMSE 
+```{r}
+predicted = c(12, 5, 19, 3)
+actual = c(11, 4, 15, 6)
+
+cal_rmse(predicted, actual)
+
+```
 
 <br/>
 
 ## Dependencies
-TODO
+
+  | Package      | Version |
+  | ------------ | ------- |
+  | tidyverse    |   	1.3.1 |
 
 <br/>
 
 ## License
-TODO
 
