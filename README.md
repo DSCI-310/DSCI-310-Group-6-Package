@@ -160,7 +160,3 @@ cal_rmse(predicted, actual)
 | Package   | Version |
 |-----------|---------|
 | tidyverse | 1.3.1   |
-
-<br/>
-
-## License
