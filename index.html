@@ -53,8 +53,11 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="package6">package6<a class="anchor" aria-label="anchor" href="#package6"></a>
 </h1></div>
+<!-- badges: start -->
 
-<p>The goal of package6 is to encapsulate useful helper functions used for data analysis projects similar to <a href="https://github.com/DSCI-310/DSCI-310-Group-6" class="external-link">New Taipei City Real Estate Value Prediction</a>.</p>
+<p><a href="https://codecov.io/gh/DSCI-310/DSCI-310-Group-6-Package" class="external-link"><img src="https://codecov.io/gh/DSCI-310/DSCI-310-Group-6-Package/branch/main/graph/badge.svg?token=QRIHLUGBLT" alt="codecov"></a> <!-- badges: end --></p>
+<hr>
+<p>The goal of <a href="https://dsci-310.github.io/DSCI-310-Group-6-Package/" class="external-link">package6</a> is to encapsulate useful helper functions used for data analysis projects similar to <a href="https://github.com/DSCI-310/DSCI-310-Group-6" class="external-link">New Taipei City Real Estate Value Prediction</a>.</p>
 <p><br></p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -96,29 +99,107 @@
 <span class="co">#&gt; 2         2         4</span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="get_rmse">
-<code>get_RMSE()</code><a class="anchor" aria-label="anchor" href="#get_rmse"></a>
+<h3 id="split_datadataset-train_perc-vs_prec-test_perc">
+<code>split_data(dataset, train_perc, vs_prec, test_perc)</code><a class="anchor" aria-label="anchor" href="#split_datadataset-train_perc-vs_prec-test_perc"></a>
 </h3>
-<p>Calculates the RMSE given predicted and actual value. TODO</p>
+<p>To split a data set/ date frame into 3 parts:train data, test data and variable selection data</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">mtcars</span>
+<span class="fu">glimpse</span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 32</span>
+<span class="co">#&gt; Columns: 11</span>
+<span class="co">#&gt; $ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,…</span>
+<span class="co">#&gt; $ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,…</span>
+<span class="co">#&gt; $ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16…</span>
+<span class="co">#&gt; $ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180…</span>
+<span class="co">#&gt; $ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92,…</span>
+<span class="co">#&gt; $ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.…</span>
+<span class="co">#&gt; $ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18…</span>
+<span class="co">#&gt; $ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,…</span>
+<span class="co">#&gt; $ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0,…</span>
+<span class="co">#&gt; $ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3,…</span>
+<span class="co">#&gt; $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2,…</span></code></pre></div>
+<p>Let’s start with mtcars data frame</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">train</span><span class="op">&lt;-</span><span class="fu"><a href="reference/split_data.html">split_data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">$</span><span class="va">train</span>
+<span class="va">cv</span><span class="op">&lt;-</span><span class="fu"><a href="reference/split_data.html">split_data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">$</span><span class="va">cv</span>
+<span class="va">test</span><span class="op">&lt;-</span><span class="fu"><a href="reference/split_data.html">split_data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">$</span><span class="va">test</span>
+<span class="fu">glimpse</span><span class="op">(</span><span class="va">train</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 19</span>
+<span class="co">#&gt; Columns: 11</span>
+<span class="co">#&gt; $ mpg  &lt;dbl&gt; 15.0, 18.7, 21.4, 22.8, 21.4, 15.2, 13.3, 15.2, 10.4, 19.2, 27.3,…</span>
+<span class="co">#&gt; $ cyl  &lt;dbl&gt; 8, 8, 4, 4, 6, 8, 8, 8, 8, 6, 4, 8, 4, 4, 8, 4, 8, 4, 8</span>
+<span class="co">#&gt; $ disp &lt;dbl&gt; 301.0, 360.0, 121.0, 108.0, 258.0, 304.0, 350.0, 275.8, 472.0, 16…</span>
+<span class="co">#&gt; $ hp   &lt;dbl&gt; 335, 175, 109, 93, 110, 150, 245, 180, 205, 123, 66, 180, 97, 65,…</span>
+<span class="co">#&gt; $ drat &lt;dbl&gt; 3.54, 3.15, 4.11, 3.85, 3.08, 3.15, 3.73, 3.07, 2.93, 3.92, 4.08,…</span>
+<span class="co">#&gt; $ wt   &lt;dbl&gt; 3.570, 3.440, 2.780, 2.320, 3.215, 3.435, 3.840, 3.780, 5.250, 3.…</span>
+<span class="co">#&gt; $ qsec &lt;dbl&gt; 14.60, 17.02, 18.60, 18.61, 19.44, 17.30, 15.41, 18.00, 17.98, 18…</span>
+<span class="co">#&gt; $ vs   &lt;dbl&gt; 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0</span>
+<span class="co">#&gt; $ am   &lt;dbl&gt; 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0</span>
+<span class="co">#&gt; $ gear &lt;dbl&gt; 5, 3, 4, 4, 3, 3, 3, 3, 3, 4, 4, 3, 3, 4, 3, 5, 3, 4, 3</span>
+<span class="co">#&gt; $ carb &lt;dbl&gt; 8, 2, 2, 1, 1, 2, 4, 3, 4, 4, 1, 3, 1, 1, 4, 2, 3, 2, 4</span>
+<span class="fu">glimpse</span><span class="op">(</span><span class="va">cv</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 7</span>
+<span class="co">#&gt; Columns: 11</span>
+<span class="co">#&gt; $ mpg  &lt;dbl&gt; 33.9, 24.4, 30.4, 21.5, 26.0, 19.2, 15.2</span>
+<span class="co">#&gt; $ cyl  &lt;dbl&gt; 4, 4, 4, 4, 4, 6, 8</span>
+<span class="co">#&gt; $ disp &lt;dbl&gt; 71.1, 146.7, 95.1, 120.1, 120.3, 167.6, 275.8</span>
+<span class="co">#&gt; $ hp   &lt;dbl&gt; 65, 62, 113, 97, 91, 123, 180</span>
+<span class="co">#&gt; $ drat &lt;dbl&gt; 4.22, 3.69, 3.77, 3.70, 4.43, 3.92, 3.07</span>
+<span class="co">#&gt; $ wt   &lt;dbl&gt; 1.835, 3.190, 1.513, 2.465, 2.140, 3.440, 3.780</span>
+<span class="co">#&gt; $ qsec &lt;dbl&gt; 19.90, 20.00, 16.90, 20.01, 16.70, 18.30, 18.00</span>
+<span class="co">#&gt; $ vs   &lt;dbl&gt; 1, 1, 1, 1, 0, 1, 0</span>
+<span class="co">#&gt; $ am   &lt;dbl&gt; 1, 0, 1, 0, 1, 0, 0</span>
+<span class="co">#&gt; $ gear &lt;dbl&gt; 4, 4, 5, 3, 5, 4, 3</span>
+<span class="co">#&gt; $ carb &lt;dbl&gt; 1, 2, 2, 1, 2, 4, 3</span>
+<span class="fu">glimpse</span><span class="op">(</span><span class="va">test</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 6</span>
+<span class="co">#&gt; Columns: 11</span>
+<span class="co">#&gt; $ mpg  &lt;dbl&gt; 13.3, 21.5, 14.3, 15.2, 17.3, 21.0</span>
+<span class="co">#&gt; $ cyl  &lt;dbl&gt; 8, 4, 8, 8, 8, 6</span>
+<span class="co">#&gt; $ disp &lt;dbl&gt; 350.0, 120.1, 360.0, 304.0, 275.8, 160.0</span>
+<span class="co">#&gt; $ hp   &lt;dbl&gt; 245, 97, 245, 150, 180, 110</span>
+<span class="co">#&gt; $ drat &lt;dbl&gt; 3.73, 3.70, 3.21, 3.15, 3.07, 3.90</span>
+<span class="co">#&gt; $ wt   &lt;dbl&gt; 3.840, 2.465, 3.570, 3.435, 3.730, 2.620</span>
+<span class="co">#&gt; $ qsec &lt;dbl&gt; 15.41, 20.01, 15.84, 17.30, 17.60, 16.46</span>
+<span class="co">#&gt; $ vs   &lt;dbl&gt; 0, 1, 0, 0, 0, 0</span>
+<span class="co">#&gt; $ am   &lt;dbl&gt; 0, 0, 0, 0, 0, 1</span>
+<span class="co">#&gt; $ gear &lt;dbl&gt; 3, 3, 3, 3, 3, 4</span>
+<span class="co">#&gt; $ carb &lt;dbl&gt; 4, 1, 4, 2, 3, 4</span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="split_data">
-<code>split_data()</code><a class="anchor" aria-label="anchor" href="#split_data"></a>
+<h3 id="cal_rmsexy">
+<code>cal_rmse(x,y)</code><a class="anchor" aria-label="anchor" href="#cal_rmsexy"></a>
 </h3>
-<p>TODO</p>
+<p>To calculate RMSE</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">predicted</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">5</span>, <span class="fl">19</span>, <span class="fl">3</span><span class="op">)</span>
+<span class="va">actual</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">11</span>, <span class="fl">4</span>, <span class="fl">15</span>, <span class="fl">6</span><span class="op">)</span>
+
+<span class="fu"><a href="reference/cal_rmse.html">cal_rmse</a></span><span class="op">(</span><span class="va">predicted</span>, <span class="va">actual</span><span class="op">)</span>
+<span class="co">#&gt; [1] 2.6</span></code></pre></div>
 <p><br></p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
 </h2>
-<p>TODO</p>
+<table class="table">
+<thead><tr class="header">
+<th>Package</th>
+<th>Version</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td>tidyverse</td>
+<td>1.3.1</td>
+</tr></tbody>
+</table>
 <p><br></p>
 </div>
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
-<p><a href="https://codecov.io/gh/DSCI-310/DSCI-310-Group-6-Package" class="external-link"><img src="https://codecov.io/gh/DSCI-310/DSCI-310-Group-6-Package/branch/main/graph/badge.svg?token=QRIHLUGBLT" alt="codecov"></a></p>
+<p><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
@@ -129,6 +210,13 @@
 </ul>
 </div>
 
+<div class="community">
+<h2 data-toc-skip>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+</ul>
+</div>
 
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
@@ -147,7 +235,7 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/DSCI-310/DSCI-310-Group-6-Package/actions/workflows/r_cmd_check.yml" class="external-link"><img src="https://github.com/DSCI-310/DSCI-310-Group-6-Package/actions/workflows/r_cmd_check.yml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/DSCI-310/DSCI-310-Group-6-Package/actions" class="external-link"><img src="https://github.com/DSCI-310/DSCI-310-Group-6-Package/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
