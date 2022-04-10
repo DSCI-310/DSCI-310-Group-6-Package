@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 ---
 
-The goal of package6 is to encapsulate useful helper functions used for data analysis projects similar to [New Taipei City Real Estate Value Prediction](https://github.com/DSCI-310/DSCI-310-Group-6).
+The goal of [package6](https://dsci-310.github.io/DSCI-310-Group-6-Package/) is to encapsulate useful helper functions used for data analysis projects similar to [New Taipei City Real Estate Value Prediction](https://github.com/DSCI-310/DSCI-310-Group-6).
 
 <br/>
 
