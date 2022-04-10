@@ -17,6 +17,8 @@ Substitutes blank space " " in column names of the input data frame with "_".
 If there is no " " in the column names, return the data frame.
 }
 \examples{
-df <- data.frame (`colName1`  = c("value_1", "value_2"),`colName2` = c("value_1", "value_2"))
+df <- data.frame(`col Name 1` = c(1, 2),
+                 `col Name 2` = c(3, 4), 
+                 check.names = FALSE)
 format_column_names(df)
 }
